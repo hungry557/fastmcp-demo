@@ -51,11 +51,12 @@ server.addTool({
   description: "获取指定城市的天气信息", // 工具描述
   parameters: z.object({
     city: z.string().describe("城市名称"), // 城市参数定义
-    date: z.string().optional().describe("日期，格式为YYYY-MM-DD，默认为今天"), // 可选的日期参数
+    date: z.string().describe("日期，格式为YYYY-MM-DD，默认为今天"), // 可选的日期参数
   }),
-  execute: async (args: { city: string; date?: string }) => {
+  execute: async (args: { city: string; date: string }) => {
     // 提取参数，如果未提供日期则使用当前日期
-    const { city, date = new Date().toISOString().split("T")[0] } = args;
+    const { city = "福州", date = new Date().toISOString().split("T")[0] } =
+      args;
 
     // 这里通常应该调用实际的天气API，这里只是模拟返回数据
     const weatherData = {
