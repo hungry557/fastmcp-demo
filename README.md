@@ -121,7 +121,7 @@ npm start
    - macOS: `~/.cursor/mcp.json`
    - Linux: `~/.cursor/mcp.json`
 
-2. 在配置文件中添加以下内容：
+2. 在配置文件中添加以下内容，使用已发布到 npm 的包：
 
 ```json
 {
@@ -142,23 +142,54 @@ npm start
   - `"@hungry557/fastmcp-demo"`: npm 包名
   - `"--stdio"`: 使用 stdio 模式运行
 
-#### 高级配置
+#### 使用本地开发版本
 
-如果需要更多自定义选项，可以这样配置：
+如果您正在本地开发自己的 MCP 服务器，可以这样配置：
 
 ```json
 {
   "mcpServers": {
-    "FastMCP Demo (高级配置)": {
-      "command": "cmd",
-      "args": ["/c", "npx", "-y", "@hungry557/fastmcp-demo", "--stdio"]
-    },
-    "FastMCP Demo (SSE模式)": {
+    "本地MCP开发": {
+      "command": "npm",
+      "args": ["run", "start:stdio"],
+      "cwd": "/path/to/your/project"
+    }
+  }
+}
+```
+
+#### 使用 SSE 模式
+
+如果您希望使用 SSE 模式的 MCP 服务器，请先启动服务器，然后这样配置：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP SSE模式": {
       "serverUrl": "http://localhost:8080"
     }
   }
 }
 ```
+
+#### 在 Windows 系统上的特殊配置
+
+对于 Windows 系统，可能需要使用`cmd`来执行命令：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Windows": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@hungry557/fastmcp-demo", "--stdio"]
+    }
+  }
+}
+```
+
+#### 使用示例文件
+
+本项目在`examples/cursor-mcp.json`提供了示例配置文件，您可以参考或直接使用它。
 
 #### 在 Cursor 中使用
 
@@ -166,12 +197,12 @@ npm start
 
 1. 重启 Cursor 编辑器
 2. 通过 Cursor 的命令面板选择「Connect to MCP Server」
-3. 从列表中选择「FastMCP Demo」
-4. 现在您可以在 Cursor 中使用本项目提供的 MCP 功能了
+3. 从列表中选择您配置的 MCP 服务器名称
+4. 现在您可以在 Cursor 中使用 MCP 功能了
 
 #### 注意事项
 
-- 确保已全局安装 `@hungry557/fastmcp-demo` 或在当前项目中安装
+- 确保已全局安装相应的 npm 包或在当前项目中安装
 - 如果使用 SSE 模式，需要先在另一个终端中启动服务器
 - 如果在工作环境中使用，建议考虑添加身份验证和其他安全措施
 

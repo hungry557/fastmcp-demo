@@ -11,8 +11,13 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "bin": {
+    "fastmcp-demo": "./bin/cli.js"
+  },
   "files": [
     "dist",
+    "bin",
+    "examples",
     "README.md",
     "LICENSE"
   ],
@@ -21,6 +26,8 @@
     "inspect": "npx fastmcp inspect src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:stdio": "node dist/index.js --stdio",
+    "start:sse": "node dist/index.js --port 8080",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
