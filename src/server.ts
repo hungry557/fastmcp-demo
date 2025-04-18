@@ -20,7 +20,7 @@ export const server = new FastMCP({
  * event.session包含会话信息，可用于跟踪和管理客户端会话
  */
 server.on("connect", (event) => {
-  console.log(`客户端已连接: ${JSON.stringify(event.session)}`);
+  // console.log(`客户端已连接: ${JSON.stringify(event.session)}`);
 });
 
 /**
@@ -30,5 +30,5 @@ server.on("connect", (event) => {
  * 可用于清理资源或记录会话结束
  */
 server.on("disconnect", (event) => {
-  console.log(`客户端已断开连接: ${JSON.stringify(event.session)}`);
+  // console.log(`客户端已断开连接: ${JSON.stringify(event.session)}`);
 });

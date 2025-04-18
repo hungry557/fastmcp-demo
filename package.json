@@ -1,6 +1,6 @@
 {
   "name": "@hungry557/fastmcp-demo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "一个使用FastMCP框架的MCP服务器示例",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
