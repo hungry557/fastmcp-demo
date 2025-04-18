@@ -187,6 +187,47 @@ npm start
 }
 ```
 
+#### 在 macOS 系统上的配置
+
+在 macOS 上，可以直接使用 Terminal 运行 npx 命令：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Mac": {
+      "command": "npx",
+      "args": ["@hungry557/fastmcp-demo", "--stdio"]
+    }
+  }
+}
+```
+
+如果遇到权限问题，可以尝试使用以下配置：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Mac": {
+      "command": "/bin/bash",
+      "args": ["-c", "npx @hungry557/fastmcp-demo --stdio"]
+    }
+  }
+}
+```
+
+如果 npx 不在 PATH 中，可以指定完整路径：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Mac": {
+      "command": "/bin/bash",
+      "args": ["-c", "/usr/local/bin/npx @hungry557/fastmcp-demo --stdio"]
+    }
+  }
+}
+```
+
 #### 使用示例文件
 
 本项目在`examples/cursor-mcp.json`提供了示例配置文件，您可以参考或直接使用它。
