@@ -109,6 +109,72 @@ npm start
 
 注意：由于使用了`@`开头的包名，需要确保在`publishConfig`中设置了`"access": "public"`，否则需要有 npm 付费账户才能发布私有包。
 
+### 在 Cursor 中配置 MCP 服务器
+
+[Cursor](https://cursor.sh/) 是一个支持 AI 辅助的现代化代码编辑器，可以通过配置 MCP 服务器来扩展其功能。以下是如何在 Cursor 中配置本项目提供的 MCP 服务器：
+
+#### 创建 MCP 配置文件
+
+1. 在用户主目录下创建或编辑 `.cursor/mcp.json` 文件：
+
+   - Windows: `C:\Users\<用户名>\.cursor\mcp.json`
+   - macOS: `~/.cursor/mcp.json`
+   - Linux: `~/.cursor/mcp.json`
+
+2. 在配置文件中添加以下内容：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Demo": {
+      "command": "npx",
+      "args": ["@hungry557/fastmcp-demo", "--stdio"]
+    }
+  }
+}
+```
+
+#### 配置选项说明
+
+- `"FastMCP Demo"`: 服务器名称，可以自定义
+- `"command"`: 执行命令，这里使用 `npx` 来运行 npm 包
+- `"args"`: 命令参数数组
+  - `"@hungry557/fastmcp-demo"`: npm 包名
+  - `"--stdio"`: 使用 stdio 模式运行
+
+#### 高级配置
+
+如果需要更多自定义选项，可以这样配置：
+
+```json
+{
+  "mcpServers": {
+    "FastMCP Demo (高级配置)": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@hungry557/fastmcp-demo", "--stdio"]
+    },
+    "FastMCP Demo (SSE模式)": {
+      "serverUrl": "http://localhost:8080"
+    }
+  }
+}
+```
+
+#### 在 Cursor 中使用
+
+配置完成后：
+
+1. 重启 Cursor 编辑器
+2. 通过 Cursor 的命令面板选择「Connect to MCP Server」
+3. 从列表中选择「FastMCP Demo」
+4. 现在您可以在 Cursor 中使用本项目提供的 MCP 功能了
+
+#### 注意事项
+
+- 确保已全局安装 `@hungry557/fastmcp-demo` 或在当前项目中安装
+- 如果使用 SSE 模式，需要先在另一个终端中启动服务器
+- 如果在工作环境中使用，建议考虑添加身份验证和其他安全措施
+
 ## SSE 模式详细说明
 
 本项目支持使用 SSE (Server-Sent Events) 模式运行，这是 FastMCP 框架支持的一种通信方式，用于实现客户端与服务器的实时通信。
