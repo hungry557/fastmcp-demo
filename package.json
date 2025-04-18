@@ -12,7 +12,7 @@
     }
   },
   "bin": {
-    "fastmcp-demo": "./bin/cli.js"
+    "fastmcp-demo": "dist/index.js"
   },
   "files": [
     "dist",
@@ -40,8 +40,8 @@
     "sse"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "hungry557",
+    "email": "2113826604@qq.com"
   },
   "repository": {
     "type": "git",
