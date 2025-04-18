@@ -2,6 +2,23 @@
 
 这是一个使用 [FastMCP](https://github.com/punkpeye/fastmcp) 框架的 MCP 服务器示例项目。项目展示了如何使用 TypeScript 创建一个基本的 MCP 服务器，包括工具、资源和提示的实现。
 
+[![npm version](https://img.shields.io/npm/v/@hungry557/fastmcp-demo.svg)](https://www.npmjs.com/package/@hungry557/fastmcp-demo)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 安装
+
+通过 npm 安装：
+
+```bash
+npm install @hungry557/fastmcp-demo
+```
+
+通过 yarn 安装：
+
+```bash
+yarn add @hungry557/fastmcp-demo
+```
+
 ## 主要功能
 
 - **工具**：
@@ -67,6 +84,30 @@ npm run build
 ```bash
 npm start
 ```
+
+## 发布到 NPM
+
+如果你想基于此项目发布自己的 MCP 服务器，请遵循以下步骤：
+
+1. 更新`package.json`中的相关信息：
+
+   - `name`: 更改为你的包名
+   - `version`: 包版本
+   - `author`: 你的信息
+   - `repository`: 更新为你的仓库地址
+
+2. 登录到 npm：
+
+   ```bash
+   npm login
+   ```
+
+3. 发布包：
+   ```bash
+   npm publish
+   ```
+
+注意：由于使用了`@`开头的包名，需要确保在`publishConfig`中设置了`"access": "public"`，否则需要有 npm 付费账户才能发布私有包。
 
 ## SSE 模式详细说明
 

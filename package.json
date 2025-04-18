@@ -3,27 +3,61 @@
   "version": "1.0.0",
   "description": "一个使用FastMCP框架的MCP服务器示例",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "npx fastmcp dev src/index.ts",
     "inspect": "npx fastmcp inspect src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "mcp",
     "fastmcp",
     "ai",
-    "claude"
+    "claude",
+    "model-context-protocol",
+    "sse"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hungry557/fastmcp-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hungry557/fastmcp-demo/issues"
+  },
+  "homepage": "https://github.com/hungry557/fastmcp-demo#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "@types/node": "^22.14.1",
     "fastmcp": "^1.21.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.3",
     "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   }
 }
